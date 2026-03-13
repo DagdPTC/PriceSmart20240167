@@ -1,8 +1,14 @@
 import express from "express"
-import productRouter from "./src/routes/products.js"
+import productRoutes from "./src/routes/products.js"
+import branchesRoutes from "./src/routes/branches.js"
 
 const app = express();
 
-app.use("/api/products")
+//Que acepte JSON desde postman
+app.use(express.json());
+
+app.use("/api/products", productRoutes);
+app.use("/api/branches", branchesRoutes)
+
 
 export default app;
